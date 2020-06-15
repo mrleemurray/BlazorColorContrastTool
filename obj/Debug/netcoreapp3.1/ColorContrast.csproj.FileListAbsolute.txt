@@ -1,0 +1,16 @@
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\ColorContrast.AssemblyInfoInputs.cache
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\ColorContrast.AssemblyInfo.cs
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\ColorContrast.csproj.CoreCompileInputs.cache
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\ColorContrast.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\ColorContrast.RazorComponent.input.cache
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\RazorDeclaration\App.razor.g.cs
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ColorContrast.razor.g.cs
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Counter.razor.g.cs
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Error.razor.g.cs
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\FetchData.razor.g.cs
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Todo.razor.g.cs
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\MainLayout.razor.g.cs
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\NavMenu.razor.g.cs
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
+C:\Users\lemurra\source\repos\ToDo\obj\Debug\netcoreapp3.1\RazorDeclaration\_Imports.razor.g.cs

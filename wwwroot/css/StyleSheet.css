@@ -1,0 +1,71 @@
+﻿body {
+    padding: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 24pt;
+}
+
+h2 {
+    font-size: 18pt;
+}
+
+h3 {
+    font-size: 14pt;
+}
+
+p {
+    padding-bottom: 6px;
+}
+
+.small {
+    font-size: 8pt;
+}
+
+.tiny {
+    font-size: 6pt;
+}
+
+button {
+    margin-top: 6px;
+    height: 48px;
+}
+
+.control-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.color-controls {
+    display: flex;
+}
+
+.pickers {
+    display: flex;
+    flex-direction: column;
+    margin-right: 16px;
+}
+
+label {
+    min-width: 132px;
+}
+
+.results {
+    display: flex;
+}
+
+.preview {
+    margin: 16px;
+    padding: 8px;
+}
+
+.reaction {
+    font-size: 62px;
+    width: 90px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: -30px;
+    padding-left: 16px;
+}

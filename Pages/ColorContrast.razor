@@ -1,0 +1,121 @@
+﻿@page "/colorcontrast"
+
+<h3>Color Contrast Checker</h3>
+<div class="control-container">
+    <div class="controls">
+        <div class="color-controls">
+            <div class="pickers">
+                <div>
+                    <label>Background color:</label>
+                    <input type="color" @bind="backgroundColor" />
+                    <span>@backgroundColor</span>
+                </div>
+                <div>
+                    <label>Text color:</label>
+                    <input type="color" @bind="fontColor" />
+                    <span>@fontColor</span>
+                </div>
+            </div>
+            <button @onclick="swapColors">
+                Swap colors
+            </button>
+        </div>
+    </div>
+    
+    <div class="results">
+        <div>
+            <h2>Contrast ratio:  <b>@(contrast(backgroundColor, fontColor).ToString("0.0")):1</b></h2>
+        </div>
+        <p class="reaction">
+            @(reaction(contrast(backgroundColor, fontColor)))
+        </p>
+    </div>
+</div>
+
+<div class="preview" style="color:@fontColor; background-color:@backgroundColor">
+    <h1>This is some sample text @@24pt.</h1>
+    <h2>This is some sample text @@18pt.</h2>
+    <h3>This is some sample text @@14pt.</h3>
+
+    <p>
+        8-bit mlkshk stumptown cred four dollar toast hot chicken gochujang lo-fi semiotics af bushwick. Hoodie meh tbh, hot chicken gastropub ugh selfies flannel tofu. VHS normcore celiac franzen health goth, vinyl live-edge slow-carb enamel pin four loko coloring book jianbing farm-to-table migas. Unicorn williamsburg cardigan tumblr tbh lo-fi, humblebrag aesthetic tattooed hoodie everyday carry meh prism iceland venmo.
+
+        Tofu kitsch pug, coloring book drinking vinegar man bun sriracha beard literally mumblecore. Hexagon blog hammock brooklyn. Keffiyeh chartreuse readymade, subway tile umami shaman master cleanse organic pour-over lomo dreamcatcher. Hammock skateboard truffaut 90's banh mi austin wolf before they sold out. Hot chicken wolf heirloom vaporware bitters selvage bushwick copper mug vegan. Iceland put a bird on it man braid retro, bespoke blue bottle chambray pork belly flexitarian af pug occupy skateboard keytar. Ramps kitsch taxidermy keytar.
+
+        Meh pinterest asymmetrical, salvia swag letterpress intelligentsia flannel chia banjo. Fam slow-carb woke tumblr live-edge poke fingerstache shaman post-ironic health goth man braid vice. Subway tile bicycle rights tilde vexillologist art party health goth, polaroid seitan ennui gochujang. Heirloom air plant iceland normcore copper mug, pour-over seitan PBR&B jianbing flannel kogi fam roof party. Portland cloud bread snackwave, pour-over leggings selfies chicharrones four dollar toast. Kombucha lumbersexual 8-bit echo park, everyday carry plaid typewriter DIY synth microdosing. Ethical palo santo paleo pinterest, blog humblebrag etsy biodiesel ennui sriracha beard kale chips pok pok hashtag.
+    </p>
+
+    <p class="small">
+        8-bit mlkshk stumptown cred four dollar toast hot chicken gochujang lo-fi semiotics af bushwick. Hoodie meh tbh, hot chicken gastropub ugh selfies flannel tofu. VHS normcore celiac franzen health goth, vinyl live-edge slow-carb enamel pin four loko coloring book jianbing farm-to-table migas. Unicorn williamsburg cardigan tumblr tbh lo-fi, humblebrag aesthetic tattooed hoodie everyday carry meh prism iceland venmo.
+
+        Tofu kitsch pug, coloring book drinking vinegar man bun sriracha beard literally mumblecore. Hexagon blog hammock brooklyn. Keffiyeh chartreuse readymade, subway tile umami shaman master cleanse organic pour-over lomo dreamcatcher. Hammock skateboard truffaut 90's banh mi austin wolf before they sold out. Hot chicken wolf heirloom vaporware bitters selvage bushwick copper mug vegan. Iceland put a bird on it man braid retro, bespoke blue bottle chambray pork belly flexitarian af pug occupy skateboard keytar. Ramps kitsch taxidermy keytar.
+
+        Meh pinterest asymmetrical, salvia swag letterpress intelligentsia flannel chia banjo. Fam slow-carb woke tumblr live-edge poke fingerstache shaman post-ironic health goth man braid vice. Subway tile bicycle rights tilde vexillologist art party health goth, polaroid seitan ennui gochujang. Heirloom air plant iceland normcore copper mug, pour-over seitan PBR&B jianbing flannel kogi fam roof party. Portland cloud bread snackwave, pour-over leggings selfies chicharrones four dollar toast. Kombucha lumbersexual 8-bit echo park, everyday carry plaid typewriter DIY synth microdosing. Ethical palo santo paleo pinterest, blog humblebrag etsy biodiesel ennui sriracha beard kale chips pok pok hashtag.
+    </p>
+
+    <p class="tiny">
+        8-bit mlkshk stumptown cred four dollar toast hot chicken gochujang lo-fi semiotics af bushwick. Hoodie meh tbh, hot chicken gastropub ugh selfies flannel tofu. VHS normcore celiac franzen health goth, vinyl live-edge slow-carb enamel pin four loko coloring book jianbing farm-to-table migas. Unicorn williamsburg cardigan tumblr tbh lo-fi, humblebrag aesthetic tattooed hoodie everyday carry meh prism iceland venmo.
+
+        Tofu kitsch pug, coloring book drinking vinegar man bun sriracha beard literally mumblecore. Hexagon blog hammock brooklyn. Keffiyeh chartreuse readymade, subway tile umami shaman master cleanse organic pour-over lomo dreamcatcher. Hammock skateboard truffaut 90's banh mi austin wolf before they sold out. Hot chicken wolf heirloom vaporware bitters selvage bushwick copper mug vegan. Iceland put a bird on it man braid retro, bespoke blue bottle chambray pork belly flexitarian af pug occupy skateboard keytar. Ramps kitsch taxidermy keytar.
+
+        Meh pinterest asymmetrical, salvia swag letterpress intelligentsia flannel chia banjo. Fam slow-carb woke tumblr live-edge poke fingerstache shaman post-ironic health goth man braid vice. Subway tile bicycle rights tilde vexillologist art party health goth, polaroid seitan ennui gochujang. Heirloom air plant iceland normcore copper mug, pour-over seitan PBR&B jianbing flannel kogi fam roof party. Portland cloud bread snackwave, pour-over leggings selfies chicharrones four dollar toast. Kombucha lumbersexual 8-bit echo park, everyday carry plaid typewriter DIY synth microdosing. Ethical palo santo paleo pinterest, blog humblebrag etsy biodiesel ennui sriracha beard kale chips pok pok hashtag.
+    </p>
+</div>
+
+@code {
+    private string backgroundColor = "#FFFFFF";
+    private string fontColor = "#000000";
+
+    private double luminanace(System.Drawing.Color color)
+    {
+        return 0.2126 * normalised(color.R) + 0.7152 * normalised(color.G) + 0.0722 * normalised(color.B);
+    }
+
+    private double normalised(int input)
+    {
+        Console.WriteLine(input);
+        double a = (double)input / 255;
+        return a <= 0.03928 ? a / 12.92 : Math.Pow((a + 0.055) / 1.055, 2.4);
+    }
+
+    private double contrast(string hex1, string hex2)
+    {
+        double lum1 = luminanace(convertHexToColor(hex1));
+        double lum2 = luminanace(convertHexToColor(hex2));
+
+        double brightest = Math.Max(lum1, lum2);
+        double darkest = Math.Min(lum1, lum2);
+
+        return (brightest + 0.05) / (darkest + 0.05);
+
+    }
+
+    // minimal recommended contrast ratio is 4.5, or 3 for larger font-sizes
+    private System.Drawing.Color convertHexToColor(string hex)
+    {
+        return System.Drawing.ColorTranslator.FromHtml(hex); ;
+    }
+
+    private void swapColors()
+    {
+        string tempValue = backgroundColor;
+        backgroundColor = fontColor;
+        fontColor = tempValue;
+    }
+
+    private string reaction(double contrast)
+    {
+        if (contrast >= 0 && contrast < 3.0)
+        {
+            return "👎";
+        }
+        else if (contrast >= 3.0 && contrast < 4.5)
+        {
+            return "🤏";
+        }
+        else
+        {
+            return "👍";
+        }
+    }
+}
